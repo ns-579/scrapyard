@@ -811,6 +811,34 @@ export default function ExampleCity() {
           <Link href="https://hackclub.com/clubs">Clubs</Link>{' '}
           <span sx={{ transform: 'scale(2)' }}>・</span>{' '}
           <Link href="https://hackclub.com/hackathons">Hackathons</Link>
+
+          document.addEventListener('DOMContentLoaded', function () {
+    const sponsorLogos = [
+        'KTech Logo.jpg',
+        'CNCF main-logo.jpg',
+        'LF_logo_NEW_Pantone.jpg'
+    ];
+
+    let sponsorContainer = document.getElementById('sponsor-logos');
+
+    if (!sponsorContainer) {
+        sponsorContainer = document.createElement('div');
+        sponsorContainer.id = 'sponsor-logos';
+        document.body.appendChild(sponsorContainer);
+    }
+
+    sponsorContainer.style.textAlign = 'center';
+    sponsorContainer.style.padding = '20px 0';
+
+    sponsorLogos.forEach(logo => {
+        const imgElement = document.createElement('img');
+        imgElement.src = `./images/sponsors/${logo}`;
+        imgElement.alt = logo.replace('.jpg', '').replace(/-/g, ' ');
+        imgElement.classList.add('sponsor-logo');
+        sponsorContainer.appendChild(imgElement);
+    });
+});
+
         </Text>
       </Box>
     </Box>
